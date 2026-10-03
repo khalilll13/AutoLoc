@@ -1,9 +1,6 @@
 package tn.esprit.autoloc.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +8,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -24,5 +22,12 @@ public class Contrat {
     private LocalDate dateSignature;
     private BigDecimal montantTotal;
     private Boolean valide;
+
+    @OneToOne(mappedBy = "contrat")
+    Reservation reservation;
+
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "contrat")
+    private Set<Paiement> Paiements;
+
 
 }
