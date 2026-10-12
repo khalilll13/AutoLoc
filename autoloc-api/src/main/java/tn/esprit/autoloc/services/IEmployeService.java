@@ -12,4 +12,6 @@ public interface IEmployeService {
     void DeleteEmploye(Long id);
 
     List<Employe> GetAllEmployes();
+
+    Employe GetEmployeById(Long id);
 }

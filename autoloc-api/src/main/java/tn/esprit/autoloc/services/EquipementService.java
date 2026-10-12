@@ -31,4 +31,9 @@ public class EquipementService implements IEquipementService {
     public List<Equipement> GetAllEquipements() {
         return equipementRepository.findAll();
     }
+
+    @Override
+    public Equipement GetEquipementById(Long id) {
+        return equipementRepository.findById(id).orElse(null);
+    }
 }

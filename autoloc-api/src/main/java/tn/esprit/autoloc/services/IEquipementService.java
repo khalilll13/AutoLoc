@@ -12,4 +12,6 @@ public interface IEquipementService {
     void DeleteEquipement(Long id);
 
     List<Equipement> GetAllEquipements();
+
+    Equipement GetEquipementById(Long id);
 }

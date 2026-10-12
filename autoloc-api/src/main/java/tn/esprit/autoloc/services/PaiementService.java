@@ -31,4 +31,9 @@ public class PaiementService implements IPaiementService {
     public List<Paiement> GetAllPaiements() {
         return paiementRepository.findAll();
     }
+
+    @Override
+    public Paiement GetPaiementById(Long id) {
+        return paiementRepository.findById(id).orElse(null);
+    }
 }

@@ -31,4 +31,9 @@ public class ClientService implements IClientService {
     public List<Client> GetAllClients() {
         return clientRepository.findAll();
     }
+
+    @Override
+    public Client GetClientById(Long id) {
+        return clientRepository.findById(id).orElse(null);
+    }
 }

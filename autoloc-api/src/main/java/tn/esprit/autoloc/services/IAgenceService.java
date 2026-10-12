@@ -12,4 +12,6 @@ public interface IAgenceService {
     void DeleteAgence (Long id);
 
     List<Agence> GetAllAgences ();
+
+    Agence GetAgenceById(Long id);
 }

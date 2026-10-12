@@ -12,4 +12,6 @@ public interface IMaintenanceService {
     void DeleteMaintenance(Long id);
 
     List<Maintenance> GetAllMaintenances();
+
+    Maintenance GetMaintenanceById(Long id);
 }

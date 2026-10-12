@@ -12,4 +12,6 @@ public interface IVehiculeService {
     void DeleteVehicule(Long id);
 
     List<Vehicule> GetAllVehicules();
+
+    Vehicule GetVehiculeById(Long id);
 }

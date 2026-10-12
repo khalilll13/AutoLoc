@@ -31,4 +31,9 @@ public class ReservationService implements IReservationService {
     public List<Reservation> GetAllReservations() {
         return reservationRepository.findAll();
     }
+
+    @Override
+    public Reservation GetReservationById(Long id) {
+        return reservationRepository.findById(id).orElse(null);
+    }
 }

@@ -12,4 +12,6 @@ public interface IContratService {
     void DeleteContrat(Long id);
 
     List<Contrat> GetAllContrats();
+
+    Contrat GetContratById(Long id);
 }

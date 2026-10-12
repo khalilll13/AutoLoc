@@ -31,4 +31,9 @@ public class EmployeService implements IEmployeService {
     public List<Employe> GetAllEmployes() {
         return employeRepository.findAll();
     }
+
+    @Override
+    public Employe GetEmployeById(Long id) {
+        return employeRepository.findById(id).orElse(null);
+    }
 }

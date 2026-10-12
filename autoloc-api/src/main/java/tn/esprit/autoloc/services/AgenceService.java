@@ -31,4 +31,9 @@ public class AgenceService implements IAgenceService {
     public List<Agence> GetAllAgences() {
         return agenceRepository.findAll();
     }
+
+    @Override
+    public Agence GetAgenceById(Long id) {
+        return agenceRepository.findById(id).orElse(null);
+    }
 }

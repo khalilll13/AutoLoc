@@ -12,4 +12,6 @@ public interface IClientService {
     void DeleteClient (Long id);
 
     List<Client> GetAllClients ();
+
+    Client GetClientById(Long id);
 }

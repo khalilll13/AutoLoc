@@ -31,4 +31,9 @@ public class MaintenanceService implements IMaintenanceService {
     public List<Maintenance> GetAllMaintenances() {
         return maintenanceRepository.findAll();
     }
+
+    @Override
+    public Maintenance GetMaintenanceById(Long id) {
+        return maintenanceRepository.findById(id).orElse(null);
+    }
 }
