@@ -38,4 +38,8 @@ public class VehiculeRestController {
     public Vehicule getVehiculeById(@PathVariable Long idVehicule) {
         return vehiculeService.GetVehiculeById(idVehicule);
     }
+    @PutMapping("/affecterEquipementAVehicule/{idEquipement}/{idVehicule}")
+    public Vehicule affecterEquipementAVehicule(@PathVariable Long idEquipement, @PathVariable Long idVehicule) {
+        return vehiculeService.affecterEquipementAVehicule(idEquipement, idVehicule);
+    }
 }

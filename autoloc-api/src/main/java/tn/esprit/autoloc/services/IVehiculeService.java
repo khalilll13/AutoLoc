@@ -14,4 +14,6 @@ public interface IVehiculeService {
     List<Vehicule> GetAllVehicules();
 
     Vehicule GetVehiculeById(Long id);
+
+    Vehicule affecterEquipementAVehicule(Long idEquipement, Long idVehicule);
 }

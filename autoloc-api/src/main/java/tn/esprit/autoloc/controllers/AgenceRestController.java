@@ -38,4 +38,14 @@ public class AgenceRestController {
     public Agence getAgenceById(@PathVariable Long idAgence) {
         return agenceService.GetAgenceById(idAgence);
     }
+
+    @PutMapping("/affecterVehicule/{idVehicule}/{idAgence}")
+    public Agence affecterVehiculeAAgence(@PathVariable Long idVehicule, @PathVariable Long idAgence) {
+        return agenceService.affecterVehiculeAAgence(idVehicule, idAgence);
+    }
+
+    @PutMapping("/desaffecterVehicule/{idVehicule}")
+    public void desaffecterVehiculeDAgence(@PathVariable Long idVehicule) {
+        agenceService.desaffecterVehiculeDAgence(idVehicule);
+    }
 }

@@ -2,7 +2,9 @@ package tn.esprit.autoloc.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.autoloc.entities.Equipement;
 import tn.esprit.autoloc.entities.Vehicule;
+import tn.esprit.autoloc.repositories.EquipementRepository;
 import tn.esprit.autoloc.repositories.VehiculeRepository;
 
 import java.util.List;
@@ -11,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class VehiculeService implements IVehiculeService {
     VehiculeRepository vehiculeRepository;
+    EquipementRepository equipementRepository;
 
     @Override
     public Vehicule AddVehicule(Vehicule vehicule) {
@@ -35,5 +38,14 @@ public class VehiculeService implements IVehiculeService {
     @Override
     public Vehicule GetVehiculeById(Long id) {
         return vehiculeRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Vehicule affecterEquipementAVehicule(Long idEquipement, Long idVehicule) {
+        Vehicule vehicule = vehiculeRepository.findById(idVehicule).get();
+        Equipement equipement = equipementRepository.findById(idEquipement).get();
+        vehicule.getEquipements().add(equipement);
+vehiculeRepository.save(vehicule);
+        return vehicule;
     }
 }

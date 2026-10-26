@@ -14,4 +14,8 @@ public interface IAgenceService {
     List<Agence> GetAllAgences ();
 
     Agence GetAgenceById(Long id);
+    Agence affecterVehiculeAAgence(Long idVehicule, Long idAgence);
+    void desaffecterVehiculeDAgence(Long idVehicule);
+
+
 }

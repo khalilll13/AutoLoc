@@ -19,6 +19,6 @@ public class Equipement {
     private Long idEquipement;
     private String libelle;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Vehicule> vehicules;
 }
