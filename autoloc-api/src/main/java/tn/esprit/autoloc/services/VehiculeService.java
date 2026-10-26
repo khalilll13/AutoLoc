@@ -44,8 +44,10 @@ public class VehiculeService implements IVehiculeService {
     public Vehicule affecterEquipementAVehicule(Long idEquipement, Long idVehicule) {
         Vehicule vehicule = vehiculeRepository.findById(idVehicule).get();
         Equipement equipement = equipementRepository.findById(idEquipement).get();
+        // Equipement est le côté propriétaire (Vehicule a mappedBy) : c'est lui qui écrit la table de jointure
+        equipement.getVehicules().add(vehicule);
         vehicule.getEquipements().add(equipement);
-vehiculeRepository.save(vehicule);
+        equipementRepository.save(equipement);
         return vehicule;
     }
 }
