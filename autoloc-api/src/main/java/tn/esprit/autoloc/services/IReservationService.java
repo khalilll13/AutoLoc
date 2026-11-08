@@ -18,4 +18,8 @@ public interface IReservationService {
     Reservation affecterContratAReservation(Long idContrat, Long idReservation);
 
     void desaffecterContratDeReservation(Long idReservation);
+
+    Reservation affecterClientAReservation(Long idClient, Long idReservation);
+
+    Void desaffecterClientDeReservation(Long idReservation);
 }

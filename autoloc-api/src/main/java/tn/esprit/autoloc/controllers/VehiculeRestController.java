@@ -42,4 +42,9 @@ public class VehiculeRestController {
     public Vehicule affecterEquipementAVehicule(@PathVariable Long idEquipement, @PathVariable Long idVehicule) {
         return vehiculeService.affecterEquipementAVehicule(idEquipement, idVehicule);
     }
+
+    @PutMapping("/desaffecterEquipementDeVehicule/{idEquipement}/{idVehicule}")
+    public void desaffecterEquipementDeVehicule(@PathVariable Long idEquipement, @PathVariable Long idVehicule) {
+        vehiculeService.desaffecterEquipementDeVehicule(idEquipement, idVehicule);
+    }
 }

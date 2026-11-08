@@ -14,4 +14,8 @@ public interface IContratService {
     List<Contrat> GetAllContrats();
 
     Contrat GetContratById(Long id);
+
+    Void affecterPaiementAContrat(Long idPaiement, Long idContrat);
+
+    Void desaffecterPaiementAContrat(Long idPaiement, Long idContrat);
 }

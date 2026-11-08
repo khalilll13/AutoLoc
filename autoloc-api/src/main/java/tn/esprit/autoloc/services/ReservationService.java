@@ -2,8 +2,10 @@ package tn.esprit.autoloc.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.autoloc.entities.Client;
 import tn.esprit.autoloc.entities.Contrat;
 import tn.esprit.autoloc.entities.Reservation;
+import tn.esprit.autoloc.repositories.ClientRepository;
 import tn.esprit.autoloc.repositories.ContratRepository;
 import tn.esprit.autoloc.repositories.ReservationRepository;
 
@@ -14,6 +16,7 @@ import java.util.List;
 public class ReservationService implements IReservationService {
     ReservationRepository reservationRepository;
     ContratRepository contratRepository;
+    ClientRepository clientRepository;
 
     @Override
     public Reservation AddReservation(Reservation reservation) {
@@ -53,5 +56,21 @@ public class ReservationService implements IReservationService {
         Reservation reservation = reservationRepository.findById(idReservation).get();
         reservation.setContrat(null);
         reservationRepository.save(reservation);
+    }
+
+    @Override
+    public Reservation affecterClientAReservation(Long idClient, Long idReservation) {
+        Reservation reservation = reservationRepository.findById(idReservation).get();
+        Client client = clientRepository.findById(idClient).get();
+        reservation.setClient(client);
+        return reservationRepository.save(reservation);
+    }
+
+    @Override
+    public Void desaffecterClientDeReservation(Long idReservation) {
+        Reservation reservation = reservationRepository.findById(idReservation).get();
+        reservation.setClient(null);
+        reservationRepository.save(reservation);
+        return null;
     }
 }

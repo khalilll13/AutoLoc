@@ -38,4 +38,14 @@ public class ContratRestController {
     public Contrat getContratById(@PathVariable Long idContrat) {
         return contratService.GetContratById(idContrat);
     }
+
+    @PutMapping("/affecterPaiement/{idPaiement}/{idContrat}")
+    public void affecterPaiementAContrat(@PathVariable Long idPaiement, @PathVariable Long idContrat) {
+        contratService.affecterPaiementAContrat(idPaiement, idContrat);
+    }
+
+    @PutMapping("/desaffecterPaiement/{idPaiement}/{idContrat}")
+    public void desaffecterPaiementAContrat(@PathVariable Long idPaiement, @PathVariable Long idContrat) {
+        contratService.desaffecterPaiementAContrat(idPaiement, idContrat);
+    }
 }

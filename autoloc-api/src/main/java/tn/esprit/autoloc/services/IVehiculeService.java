@@ -16,4 +16,6 @@ public interface IVehiculeService {
     Vehicule GetVehiculeById(Long id);
 
     Vehicule affecterEquipementAVehicule(Long idEquipement, Long idVehicule);
+
+    Void desaffecterEquipementDeVehicule(Long idEquipement, Long idVehicule);
 }

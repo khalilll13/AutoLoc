@@ -48,4 +48,14 @@ public class ReservationRestController {
     public void desaffecterContratDeReservation(@PathVariable Long idReservation) {
         reservationService.desaffecterContratDeReservation(idReservation);
     }
+
+    @PutMapping("/affecterClientAReservation/{idClient}/{idReservation}")
+    public Reservation affecterClientAReservation(@PathVariable Long idClient, @PathVariable Long idReservation) {
+        return reservationService.affecterClientAReservation(idClient, idReservation);
+    }
+
+    @PutMapping("/desaffecterClientDeReservation/{idReservation}")
+    public Void desaffecterClientDeReservation(@PathVariable Long idReservation) {
+        return reservationService.desaffecterClientDeReservation(idReservation);
+    }
 }
